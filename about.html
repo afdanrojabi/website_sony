@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Xperia | Smartphone dan Tablet - Sony Xperia (Indonesia)</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="images/favicon.ico">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" >
+var scrolltotop={
+    //startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control
+    //scrollto: Keyword (Integer, or "Scroll_to_Element_ID"). How far to scroll document up when control is clicked on (0=top).
+    setting: {startline:100, scrollto: 0, scrollduration:1000, fadeduration:[500, 100]},
+    controlHTML: '<img src="images/totop.png" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
+    controlattrs: {offsetx:5, offsety:5}, //offset of control relative to right/ bottom of window corner
+    anchorkeyword: '#top', //Enter href value of HTML anchors on the page that should also act as "Scroll Up" links
+
+    state: {isvisible:false, shouldvisible:false},
+
+    scrollup:function(){
+        if (!this.cssfixedsupport) //if control is positioned using JavaScript
+            this.$control.css({opacity:0}) //hide control immediately after clicking it
+        var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+        if (typeof dest=="string" && jQuery('#'+dest).length==1) //check element set by string exists
+            dest=jQuery('#'+dest).offset().top
+        else
+            dest=0
+        this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+    },
+
+    keepfixed:function(){
+        var $window=jQuery(window)
+        var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+        var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+        this.$control.css({left:controlx+'px', top:controly+'px'})
+    },
+
+    togglecontrol:function(){
+        var scrolltop=jQuery(window).scrollTop()
+        if (!this.cssfixedsupport)
+            this.keepfixed()
+        this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+        if (this.state.shouldvisible && !this.state.isvisible){
+            this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+            this.state.isvisible=true
+        }
+        else if (this.state.shouldvisible==false && this.state.isvisible){
+            this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+            this.state.isvisible=false
+        }
+    },
+
+    init:function(){
+        jQuery(document).ready(function($){
+            var mainobj=scrolltotop
+            var iebrws=document.all
+            mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest //not IE or IE7+ browsers in standards mode
+            mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+            mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+                .css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+                .attr({title:'Scroll Back to Top'})
+                .click(function(){mainobj.scrollup(); return false})
+                .appendTo('body')
+            if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='') //loose check for IE6 and below, plus whether control contains any text
+                mainobj.$control.css({width:mainobj.$control.width()}) //IE6- seems to require an explicit width on a DIV containing text
+            mainobj.togglecontrol()
+            $('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+                mainobj.scrollup()
+                return false
+            })
+            $(window).bind('scroll resize', function(e){
+                mainobj.togglecontrol()
+            })
+        })
+    }
+}
+
+scrolltotop.init()
+
+</script>
+</head>
+<body>
+<div class="header">
+  <div class="header-left-panel">
+    <div class="logo-wrap">
+      <div class="logo">
+        <img src="images/Sony_logo-2.jpg"/>
+      </div>
+    </div>
+  </div>
+  <div class="header-right-panel">
+    <div class="header-right-panel-top">
+      <div id="kanan">
+	  <div class="box">
+    	
+       <br/>
+       <table>
+       	<tr>
+        	<td align="center" id="slideLogin"><a href="#" style="text-decoration:none;"><img src="images/i.png"></a></td>
+        </tr>
+       </table>
+        <div class="slide">
+			<a href="https://www.facebook.com/sonymobileid" target="_blank" style="text-decoration:none;"><img src="images/f.png"></a>
+			<a href="https://twitter.com/sonyxperiaid" target="_blank" style="text-decoration:none;"><img src="images/t.png"></a>
+			<a href="https://www.youtube.com/user/SonyEricssonAPAC" target="_blank" style="text-decoration:none;"><img src="images/y.png"></a>
+			<a href="https://www.instagram.com/sonyxperiaid/" target="_blank" style="text-decoration:none;"><img src="images/in.png"></a>
+        </div>
+      </div>
+    </div> 
+    </div>
+    <div class="menu">
+      <ul>
+        <li class="marRight20"><a href="index.html">beranda</a></li>
+        <li class="marRight20"><a href="about.html" class="active">tentang</a></li>
+        <li><a href="services.html">layanan</a></li>
+        <li class="marRight20"><a href="features.html">fitur</a></li>
+        <li class="marRight20"><a href="aksesori.html">aksesori</a></li>
+        <li><a href="contact.html">kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--- panel wrap div end -->
+<div class="page-wrap">
+  <div class="page-wrapper">
+    <div class="primary-content marRight30">
+      <div class="mid-panel">
+        <div class="mid-panel-content">
+          <div class="title">
+            <h1>Tentang Kami</h1>
+          </div>
+          <div class="border"></div>
+          <h2>Kenali lebih jauh</h2>
+          <p>Pada Sony, misi kami adalah untuk menjadi perusahaan yang menginspirasi dan memenuhi hasrat terbatas curiosity.Our Anda untuk teknologi, konten dan layanan, dan pengejaran tanpa henti inovasi, mendorong kita untuk memberikan tanah-melanggar kegembiraan baru dan hiburan dengan cara yang hanya Sony bisa .Creating budaya baru yang unik dan experiences.Everything kita lakukan, adalah untuk memindahkan Anda emotionally.</p>
+          <p>Sony didirikan pada 7 Mei 1946 dengan nama Perusahaan Telekomunikasi Tokyo dengan sekitar 20 karyawan. Produk konsumen mereka yang pertama adalah sebuah penanak nasi pada akhir 1940-an. Seiring dengan berkembangnya Sony sebagai perusahaan internasional yang besar, ia membeli perusahaan lain yang mempunyai sejarah yang lebih lama termasuk Columbia Records (perusahaan rekaman tertua yang masih ada, didirikan pada tahun 1888).</p>
+          <p>Ketika Tokyo Tsushin Kogyo sedang mencari nama yang sudah diromanisasi (bukan dalam bahasa maupun tulisan Jepang) untuk memasarkan perusahaan mereka, mereka mempertimbangkan dengan kuat untuk menggunakan singkatan mereka, TTK. Alasan mereka tidak memilihnya adalah karena ada perusahaan kereta api Tokyo Kyuko yang saat itu dikenal sebagai TKK.</p>
+          <p>Nama "Sony" dipilih sebagai gabungan kata Latin sonus, yang merupakan akar dari sonik dan bunyi, dan kata Inggris sonny ("anak kecil") yang setelah dikombinasikan berarti sekelompok kecil anak muda yang memiliki energi dan kemauan keras terhadap kreasi dan inovasi ide yang tak terbataskan. Pada saat itu, sangatlah aneh bagi sebuah perusahaan Jepang untuk menggunakan huruf Roman untuk mengeja namanya, apalagi penggunaan aksara fonetis yang digunakan dalam penulisan bahasa Jepang (daripada menggunakan aksara Tionghoa). Dan pada 1958 perusahaan mulai secara formal mengadopsi nama " Sony Corporation " sebagai nama perusahaan. Mudah digunakan dan mudah dieja dalam segala bahasa dunia. Nama Sony menggaungkan semangat kebebasan dan keterbukaan dalam inovasi.</p>
+          <p>Langkah ini mendapatkan tentangan; bank yang merupakan sponsor TTK saat itu, Mitsui mempunyai perasaan yang kuat terhadap nama tersebut. Mereka menginginkan nama seperti Sony Electronic Industries, atau Sony Teletech. Tetapi pendirian Akio Morita tetap teguh, karena dia tidak ingin nama perusahaannya terkait dengan industri apapun juga. Akhirnya, sang Ketua Bandai dan Presiden Masaru Ibuka memberikan persetujuannya.</p>
+          <p>Pada 1988, Sony membeli CBS (Columbia) Records Group dari CBS. Ia kemudian dinamakan "Sony Music Entertainment".</p>
+          <p>Pada tahun 2000, Sony mempunyai penjualan sebesar US$63 miliar dan 189.700 karyawan. Sony mengakuisisi perusahaan Aiwa pada 2002.</p>
+          <p>Sony juga memiliki saluran televisi di India dan saluran-saluran yang ditujukan untuk komunitas India di Eropa.</p>
+          <p>Sony secara sejarah terkenal karena sering memaksakan standar ciptaan mereka sendiri untuk teknologi perekaman dan penyimpanan, yang sering berbeda dari buatan perusahaan lain ataupun dari tren di pasaran . Yang paling terkenal dari semuanya adalah perang format kaset video pada awal 1980-an, ketika Sony memasarkan sistem Betamax mereka untuk perekam kaset video melawan format VHS buatan JVC. Pada akhirnya, VHS mendapatkan tempat di pasaran luas dan menjadi standar dunia untuk pemutar kaset video rumahan dan Sony terpaksa mengalah.</p>
+          <p>Sony terus mencoba taktik yang sama dengan teknologi ciptaan mereka selanjutnya; misalnya format rekaman digital mereka, Minidisc didorong untuk menjadi pengganti kaset audio sementara saingannya memilih CD-R dan MP3.</p>
+          <p>Sony juga menggunakan secara besar-besaran modul memori MemoryStick mereka untuk kamera digital dan peralatan portabel lainnya, yang sedikit digunakan perusahaan lainnya. Sony juga mencoba bersaing dengan zip drive Iomega dan Imation Superdisk melalui HiFD buatan mereka namun gagal besar.</p>
+          <p>Sony Mobile Communications Inc. (sebelumnya dikenal sebagai Sony Ericsson) adalah perusahaan pembuat telepon genggam yang didirikan pada tahun 2001 hasil gabungan dari dua perusahaan besar dalam dua bidang yang berbeda: perusahaan Jepang, Sony (elektronik) dan perusahaan Swedia, Ericsson (telekomunikasi seluler). Tahun 2012 saham Ericsson di perusahaan ini telah dibeli sepenuhnya oleh Sony.</p>
+          <p>Pada kuarter pertama tahun 2012, Sony Mobile merupakan perusahaan pembuat ponsel terbesar kesepuluh di dunia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="search-panel">
+        <div class="content">
+          <div class="title">
+            <h1>Sony Mobile Communications</h1>
+          </div>
+          <div class="border"></div>
+          <h2>Cari yang Anda butuhkan...</h2>
+          <div class="searchbox">
+            <input type="text" class="input" placeholder="ketik di sini"/>
+            <div class="button"><a href="#"></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="midpanel">
+        <div class="content marginBottom">
+          <div class="title">
+            <h1>kenali lebih jauh</h1>
+          </div>
+          <div class="border"></div>
+          <ul>
+            <li><a href="#">Kisahmu tak pernah terlihat sebagus ini</a></li>
+            <li><a href="#">Partnermu yang sempurna</a></li>
+            <li><a href="#">Pelopor smartphone 4K</a></li>
+            <li><a href="#">Lakukan lebih dari yang kamu bayangkan</a></li>
+            <li><a href="#">Lakukan lebih banyak hal</a></li>
+            <li><a href="#">Curi perhatian dengan kamera 13MP</a></li>
+            <li class="borderNone padBottom20"><a href="#">Diciptakan untuk menghibur</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="midpanel">
+        <div class="content">
+          <div class="title">
+            <h1>SEMUA AKSI. TANPA KOMPROMI.</h1>
+          </div>
+          <div class="border"></div>
+          <div class="container">
+            <div class="left marRigth20">
+              <h2>Masa depan suara</h2>
+              <p>Mendobrak batas suara yang luar biasa, dengan Hi-Resolution Audio dan Peredaman Derau Digital.</p>
+            </div>
+            <div class="img"><img src="images/img-7.jpg"/></div>
+          </div>
+          <div class="container">
+            <div class="left">
+              <h2>Tak ada yang lebih tajam daripada ini</h2>
+              <p>Terlahir dari teknologi TV BRAVIA® dari Sony, layar smartphone kami lebih cerah, tajam, dan hidup.</p>
+            </div>
+            <div class="img"><img src="images/img-8.jpg" /></div>
+          </div>
+          <div class="container borderNone">
+            <div class="left">
+              <h2>Kamera yang dirancang oleh ahlinya</h2>
+              <p>Abadikan momen sekelebatan mata dengan ketajaman yang cemerlang pada jepretan pertama dengan Xperia Z5 dan Fokus Otomatis Hybrid.</p>
+            </div>
+            <div class="img"><img src="images/img-9.jpg" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--- page wrap div end -->
+<div class="footer">
+  <p>Copyright © 2011-2016 Sony Mobile Communications Inc. All rights reserved <a href="http://www.sonymobile.com/">< www.sonymobile.com ></a></p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$("#slideLogin").click(function(e){
+	$('.slide').slideToggle();
+	});
+</script>

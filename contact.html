@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Xperia | Smartphone dan Tablet - Sony Xperia (Indonesia)</title>
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="images/favicon.ico">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" >
+var scrolltotop={
+    //startline: Integer. Number of pixels from top of doc scrollbar is scrolled before showing control
+    //scrollto: Keyword (Integer, or "Scroll_to_Element_ID"). How far to scroll document up when control is clicked on (0=top).
+    setting: {startline:100, scrollto: 0, scrollduration:1000, fadeduration:[500, 100]},
+    controlHTML: '<img src="images/totop.png" />', //HTML for control, which is auto wrapped in DIV w/ ID="topcontrol"
+    controlattrs: {offsetx:5, offsety:5}, //offset of control relative to right/ bottom of window corner
+    anchorkeyword: '#top', //Enter href value of HTML anchors on the page that should also act as "Scroll Up" links
+
+    state: {isvisible:false, shouldvisible:false},
+
+    scrollup:function(){
+        if (!this.cssfixedsupport) //if control is positioned using JavaScript
+            this.$control.css({opacity:0}) //hide control immediately after clicking it
+        var dest=isNaN(this.setting.scrollto)? this.setting.scrollto : parseInt(this.setting.scrollto)
+        if (typeof dest=="string" && jQuery('#'+dest).length==1) //check element set by string exists
+            dest=jQuery('#'+dest).offset().top
+        else
+            dest=0
+        this.$body.animate({scrollTop: dest}, this.setting.scrollduration);
+    },
+
+    keepfixed:function(){
+        var $window=jQuery(window)
+        var controlx=$window.scrollLeft() + $window.width() - this.$control.width() - this.controlattrs.offsetx
+        var controly=$window.scrollTop() + $window.height() - this.$control.height() - this.controlattrs.offsety
+        this.$control.css({left:controlx+'px', top:controly+'px'})
+    },
+
+    togglecontrol:function(){
+        var scrolltop=jQuery(window).scrollTop()
+        if (!this.cssfixedsupport)
+            this.keepfixed()
+        this.state.shouldvisible=(scrolltop>=this.setting.startline)? true : false
+        if (this.state.shouldvisible && !this.state.isvisible){
+            this.$control.stop().animate({opacity:1}, this.setting.fadeduration[0])
+            this.state.isvisible=true
+        }
+        else if (this.state.shouldvisible==false && this.state.isvisible){
+            this.$control.stop().animate({opacity:0}, this.setting.fadeduration[1])
+            this.state.isvisible=false
+        }
+    },
+
+    init:function(){
+        jQuery(document).ready(function($){
+            var mainobj=scrolltotop
+            var iebrws=document.all
+            mainobj.cssfixedsupport=!iebrws || iebrws && document.compatMode=="CSS1Compat" && window.XMLHttpRequest //not IE or IE7+ browsers in standards mode
+            mainobj.$body=(window.opera)? (document.compatMode=="CSS1Compat"? $('html') : $('body')) : $('html,body')
+            mainobj.$control=$('<div id="topcontrol">'+mainobj.controlHTML+'</div>')
+                .css({position:mainobj.cssfixedsupport? 'fixed' : 'absolute', bottom:mainobj.controlattrs.offsety, right:mainobj.controlattrs.offsetx, opacity:0, cursor:'pointer'})
+                .attr({title:'Scroll Back to Top'})
+                .click(function(){mainobj.scrollup(); return false})
+                .appendTo('body')
+            if (document.all && !window.XMLHttpRequest && mainobj.$control.text()!='') //loose check for IE6 and below, plus whether control contains any text
+                mainobj.$control.css({width:mainobj.$control.width()}) //IE6- seems to require an explicit width on a DIV containing text
+            mainobj.togglecontrol()
+            $('a[href="' + mainobj.anchorkeyword +'"]').click(function(){
+                mainobj.scrollup()
+                return false
+            })
+            $(window).bind('scroll resize', function(e){
+                mainobj.togglecontrol()
+            })
+        })
+    }
+}
+
+scrolltotop.init()
+
+</script>
+</head>
+<body>
+<div class="header">
+  <div class="header-left-panel">
+    <div class="logo-wrap">
+      <div class="logo">
+	  <img src="images/Sony_logo-2.jpg"/>
+      </div>
+    </div>
+  </div>
+  <div class="header-right-panel">
+    <div class="header-right-panel-top">
+      <div id="kanan">
+	  <div class="box">
+    	
+       <br/>
+       <table>
+       	<tr>
+        	<td align="center" id="slideLogin"><a href="#" style="text-decoration:none;"><img src="images/i.png"></a></td>
+        </tr>
+       </table>
+        <div class="slide">
+			<a href="https://www.facebook.com/sonymobileid" target="_blank" style="text-decoration:none;"><img src="images/f.png"></a>
+			<a href="https://twitter.com/sonyxperiaid" target="_blank" style="text-decoration:none;"><img src="images/t.png"></a>
+			<a href="https://www.youtube.com/user/SonyEricssonAPAC" target="_blank" style="text-decoration:none;"><img src="images/y.png"></a>
+			<a href="https://www.instagram.com/sonyxperiaid/" target="_blank" style="text-decoration:none;"><img src="images/in.png"></a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="menu">
+      <ul>
+        <li class="marRight20"><a href="index.html">beranda</a></li>
+        <li class="marRight20"><a href="about.html">tentang</a></li>
+        <li><a href="services.html">layanan</a></li>
+        <li class="marRight20"><a href="features.html">fitur</a></li>
+        <li class="marRight20"><a href="aksesori.html">aksesori</a></li>
+        <li><a href="contact.html" class="active">kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--- panel wrap div end -->
+<div class="page-wrap">
+  <div class="page-wrapper">
+    <div class="primary-content marRight30">
+      <div class="mid-panel">
+        <div class="mid-panel-content">
+          <div class="title">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15865.083385200445!2d106.78995770825206!3d-6.227977883153547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x2e69f148a21ac6cb%3A0xff8dac66819b0d63!2sSenayan+Trade+Center+Lantai+LG%2C+Jalan+Asia+Afrika%2C+Gelora%2C+Tanah+Abang%2C+Daerah+Khusus+Ibukota+Jakarta!3m2!1d-6.2279824999999995!2d106.79871519999999!5e0!3m2!1sid!2sid!4v1463896624164" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          <div class="border"></div>
+          <h2>Kirim keluhan pada Kami</h2>
+          <form>
+            <div class="contact-form margin-top">
+              <label> <span>Nama lengkap</span>
+              <input type="text" class="input_text" name="name" id="name"/>
+              </label>
+              <label> <span>Email</span>
+              <input type="text" class="input_text" name="email" id="email"/>
+              </label>
+              <label> <span>Judul</span>
+              <input type="text" class="input_text" name="subject" id="subject"/>
+              </label>
+              <label> <span>Pesan</span>
+              <textarea class="message" name="feedback" id="feedback"></textarea>
+              <input type="button" class="button" value="Submit Form" />
+              </label>
+            </div>
+          </form>
+          <div class="clearing"></div>
+          <div class="address">
+            <div class="panel">
+              <div class="title">
+                <h1>Alamat</h1>
+              </div>
+              <div class="content">
+                <p>Jalan Asia Afrika, Gelora, Tanah Abang,<br />
+                  Daerah Khusus Ibukota Jakarta, Indonesia</p>
+                <p><span>Telepon :</span> +62 21 2935 7669</p>
+                <p><span>Email :</span> <a href="mailto:questions.id@support.sonymobile.com">questions.id@support.sonymobile.com</a></p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="search-panel">
+        <div class="content">
+          <div class="title">
+            <h1>Sony Mobile Communications</h1>
+          </div>
+          <div class="border"></div>
+          <h2>Cari yang Anda butuhkan...</h2>
+          <div class="searchbox">
+            <input type="text" class="input" placeholder="ketik di sini"/>
+            <div class="button"><a href="#"></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="midpanel">
+        <div class="content marginBottom">
+          <div class="title">
+            <h1>kenali lebih jauh</h1>
+          </div>
+          <div class="border"></div>
+          <ul>
+            <li><a href="#">Kisahmu tak pernah terlihat sebagus ini</a></li>
+            <li><a href="#">Partnermu yang sempurna</a></li>
+            <li><a href="#">Pelopor smartphone 4K</a></li>
+            <li><a href="#">Lakukan lebih dari yang kamu bayangkan</a></li>
+            <li><a href="#">Lakukan lebih banyak hal</a></li>
+            <li><a href="#">Curi perhatian dengan kamera 13MP</a></li>
+            <li class="borderNone padBottom20"><a href="#">Diciptakan untuk menghibur</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+<!--- page wrap div end -->
+<div class="footer">
+  <p>Copyright © 2011-2016 Sony Mobile Communications Inc. All rights reserved <a href="http://www.sonymobile.com/">< www.sonymobile.com ></a></p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$("#slideLogin").click(function(e){
+	$('.slide').slideToggle();
+	});
+</script>
